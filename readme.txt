@@ -1,0 +1,31 @@
+The above code represents an object detection project using the OpenCV library and a pre-trained MobileNetV3 model. The purpose of this project is to perform real-time object detection on both an example image (`exmplae.png`) and a video file (`Busypeople.mp4`). The code uses the `cv2.dnn_DetectionModel` class to load a frozen model and a configuration file, which is pre-trained on the COCO dataset for detecting a variety of common objects.
+
+The steps of the project are as follows:
+
+1. Loading the model and labels:
+   - The MobileNetV3 model and its associated labels are loaded from files (`frozen_inference_graph.pb` and `ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt`, respectively).
+   - Class labels are read from a file (`labels.txt`) and stored in a list.
+
+2. Preparing the model:
+   - The input size, scale, mean values, and color channel swap are set for the model to preprocess the input images correctly.
+
+3. Example Image Detection:
+   - An example image (`exmplae.png`) is loaded.
+   - The model is used to detect objects in the image.
+   - Detected objects are drawn as bounding boxes with labels on the image.
+
+4. Video Stream Detection:
+   - A video stream from a file (`Busypeople.mp4`) is opened.
+   - The model is applied to each frame of the video stream.
+   - Detected objects are drawn as bounding boxes with labels on each frame.
+   - The video frames with detected objects are displayed in real-time.
+   - The loop continues until the user presses the 'q' key.
+
+5. Webcam Video Stream Detection:
+   - If the specified video file cannot be opened, the code falls back to using the webcam by opening index 1 and then index 0 if necessary.
+   - The same object detection and drawing process is applied to the webcam video stream.
+
+6. User Interaction:
+   - The user can exit the video stream display by pressing the 'q' key.
+
+This project showcases a basic implementation of object detection using a pre-trained model in both static images and real-time video streams. It demonstrates how to load and use a pre-trained model, perform object detection, and visualize the results by drawing bounding boxes and labels on the detected objects in both images and videos.
